@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معسكر حفظ القرآن الكريم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea, #4dd0e1, #26c6da, #00bcd4, #00acc1, #0097a7);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background-color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 8px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nav a i {
+            margin-left: 8px;
+            font-size: 1.1em;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 25px auto;
+            padding: 25px;
+            max-width: 1200px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 8px;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        tr:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding-right: 40px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        button i {
+            margin-left: 8px;
+        }
+        
+        /* Progress Visualization */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4dd0e1, #26c6da, #00bcd4, #0097a7);
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 30px 30px;
+            animation: animate-stripes 2s linear infinite;
+        }
+        
+        @keyframes animate-stripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 0; }
+        }
+        
+        .progress-value {
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        /* Circular Progress */
+        .circular-progress {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        
+        .circular-progress svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .circular-progress circle {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .circular-progress-bg {
+            stroke: #f0f0f0;
+        }
+        
+        .circular-progress-fill {
+            stroke: url(#progressGradient);
+            stroke-dasharray: 188;
+            stroke-dashoffset: calc(188 - (188 * var(--progress)) / 100);
+            transition: stroke-dashoffset 0.8s ease;
+        }
+        
+        .circular-progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        /* Badges for Groups */
+        .group-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .group-a { background-color: #e3f2fd; color: #1976d2; }
+        .group-b { background-color: #e8f5e9; color: #388e3c; }
+        .group-c { background-color: #fff3e0; color: #f57c00; }
+        .group-d { background-color: #fce4ec; color: #c2185b; }
+        
+        /* Excel Connection Buttons */
+        .excel-btn {
+            background-color: #107c41;
+            margin-left: 10px;
+        }
+        
+        .excel-btn:hover {
+            background-color: #0e6b38;
+        }
+        
+        /* Competition Section Styles */
+        .competition-section {
+            margin-top: 40px;
+        }
+        
+        .competition-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .trophy-icon {
+            color: gold;
+            font-size: 2rem;
+            margin-left: 10px;
+        }
+        
+        .leaderboard {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 12px 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .leaderboard-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .rank {
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 40px;
+            text-align: center;
+            color: var(--dark-color);
+        }
+        
+        .rank-1 { color: gold; }
+        .rank-2 { color: silver; }
+        .rank-3 { color: #cd7f32; } /* bronze */
+        
+        .student-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .student-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .student-group {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Bar Chart Visualization */
+        .bar-chart {
+            margin-top: 30px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+        }
+        
+        .chart-bar {
+            width: 40px;
+            background: linear-gradient(to top, #00bcd4, #0097a7);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 0.8s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .chart-bar:hover {
+            opacity: 0.9;
+            transform: scaleY(1.05);
+        }
+        
+        .chart-label {
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--dark-color);
+        }
+        
+        .chart-value {
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Medals Distribution */
+        .medals-distribution {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .medal-card {
+            padding: 15px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .gold { border-top: 3px solid gold; }
+        .silver { border-top: 3px solid silver; }
+        .bronze { border-top: 3px solid #cd7f32; }
+        
+        .medal-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Input Icons */
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+        
+        /* Section Icons */
+        .section-icon {
+            margin-left: 10px;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+        
+        /* Stats Cards */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* SVG Gradient for Circular Progress */
+        svg.defs-only {
+            position: absolute;
+            height: 0;
+            width: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                padding: 8px;
+            }
+            
+            .nav a {
+                padding: 8px 12px;
+                margin: 4px;
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .chart-container {
+                height: 200px;
+            }
+            
+            .chart-bar {
+                width: 25px;
+            }
+            
+            .medals-distribution {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .medal-card {
+                width: 80%;
+                margin-bottom: 15px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-card {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SVG Gradient Definition -->
+    <svg class="defs-only">
+        <defs>
+            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4dd0e1" />
+                <stop offset="100%" stop-color="#0097a7" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="header">
+        <h1><i class="fas fa-mosque"></i> معسكر حفظ القرآن الكريم</h1>
+        <p><i class="fas fa-star-and-crescent"></i> متابعة الحفظ الجديد ومراجعة البيت</p>
+    </div>
+    
+    <div class="nav">
+        <a href="#home"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="#new"><i class="fas fa-book-quran"></i> الحفظ الجديد</a>
+        <a href="#review"><i class="fas fa-house-user"></i> المراجعة</a>
+        <a href="#add"><i class="fas fa-user-plus"></i> إضافة طالبة</a>
+        <a href="#test"><i class="fas fa-pen-fancy"></i> تسجيل التسميع</a>
+        <a href="#competition"><i class="fas fa-trophy"></i> المسابقة</a>
+        <a href="#stats"><i class="fas fa-chart-pie"></i> الإحصائيات</a>
+        <a href="#settings"><i class="fas fa-cog"></i> الإعدادات</a>
+    </div>
+    
+    <div id="home" class="container">
+        <h2><i class="fas fa-table"></i> لوحة متابعة الطالبات</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-value" id="total-students">25</div>
+                <div class="stat-label">إجمالي الطالبات</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-value" id="top-performer">95%</div>
+                <div class="stat-label">أعلى تقدم</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-value" id="completed">12</div>
+                <div class="stat-label">أجزاء مكتملة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-award"></i></div>
+                <div class="stat-value" id="perfect-scores">8</div>
+                <div class="stat-label">تسميعات ممتازة</div>
+            </div>
+        </div>
+        <button id="load-excel" class="excel-btn"><i class="fas fa-file-excel"></i> تحميل البيانات من Excel</button>
+        <button id="print-report" class="excel-btn"><i class="fas fa-print"></i> طباعة التقرير</button>
+        <table>
+            <thead>
+                <tr>
+                    <th><i class="fas fa-user section-icon"></i> اسم الطالبة</th>
+                    <th><i class="fas fa-users section-icon"></i> المجموعة</th>
+                    <th><i class="fas fa-book section-icon"></i> الحفظ الجديد (المعسكر)</th>
+                    <th><i class="fas fa-home section-icon"></i> المراجعة (البيت)</th>
+                    <th><i class="fas fa-chart-line section-icon"></i> التقدم</th>
+                    <th><i class="fas fa-sticky-note section-icon"></i> ملاحظات</th>
+                    <th><i class="fas fa-cog section-icon"></i> إجراءات</th>
+                </tr>
+            </thead>
+            <tbody id="students-table-body">
+                <!-- Data will be loaded here from Excel -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="add" class="container">
+        <h2><i class="fas fa-user-plus"></i> إضافة طالبة جديدة</h2>
+        <form id="add-student-form">
+            <div class="form-group">
+                <label for="new-student-name"><i class="fas fa-user"></i> اسم الطالبة:</label>
+                <input id="new-student-name" type="text" placeholder="أدخل اسم الطالبة كاملاً" required>
+                <i class="fas fa-user-graduate input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="new-student-group"><i class="fas fa-users"></i> المجموعة:</label>
+                <select id="new-student-group" required>
+                    <option value="">اختر المجموعة</option>
+                    <option value="أ">أ <i class="fas fa-star"></i></option>
+                    <option value="ب">ب <i class="fas fa-moon"></i></option>
+                    <option value="ج">ج <i class="fas fa-sun"></i></option>
+                    <option value="د">د <i class="fas fa-cloud"></i></option>
+                </select>
+                <i class="fas fa-layer-group input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="new-student-start"><i class="fas fa-book-open"></i> بداية الحفظ:</label>
+                <input id="new-student-start" type="text" placeholder="مثال: البقرة (1-10)" required>
+                <i class="fas fa-quran input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="new-student-review"><i class="fas fa-undo"></i> المراجعة الحالية:</label>
+                <input id="new-student-review" type="text" placeholder="مثال: الفاتحة، البقرة (1-20)">
+                <i class="fas fa-redo input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="new-student-notes"><i class="fas fa-sticky-note"></i> ملاحظات أولية:</label>
+                <textarea id="new-student-notes" rows="3" placeholder="أي ملاحظات حول الطالبة"></textarea>
+                <i class="fas fa-comment-dots input-icon"></i>
+            </div>
+            <button type="submit"><i class="fas fa-save"></i> إضافة الطالبة</button>
+            <button type="button" id="save-to-excel" class="excel-btn"><i class="fas fa-file-excel"></i> حفظ في Excel</button>
+            <button type="reset" class="excel-btn"><i class="fas fa-trash-alt"></i> مسح النموذج</button>
+        </form>
+    </div>
+    
+    <div id="test" class="container">
+        <h2><i class="fas fa-pen-fancy"></i> تسجيل تسميع جديد</h2>
+        <form id="test-form">
+            <div class="form-group">
+                <label for="student"><i class="fas fa-user"></i> اسم الطالبة:</label>
+                <select id="student" required>
+                    <option value="">اختر الطالبة</option>
+                    <!-- Options will be loaded from Excel -->
+                </select>
+                <i class="fas fa-search input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="type"><i class="fas fa-tasks"></i> نوع التسميع:</label>
+                <select id="type" required>
+                    <option value="">اختر نوع التسميع</option>
+                    <option><i class="fas fa-book"></i> حفظ جديد (المعسكر)</option>
+                    <option><i class="fas fa-home"></i> مراجعة (البيت)</option>
+                </select>
+                <i class="fas fa-list-ul input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="surah"><i class="fas fa-quran"></i> السورة/الآيات:</label>
+                <input id="surah" type="text" placeholder="مثال: البقرة (1-10)" required>
+                <i class="fas fa-ayat input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="date"><i class="fas fa-calendar-alt"></i> تاريخ التسميع:</label>
+                <input id="date" type="date" required>
+                <i class="fas fa-clock input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="evaluation"><i class="fas fa-star"></i> التقييم:</label>
+                <select id="evaluation" required>
+                    <option value="">اختر التقييم</option>
+                    <option><i class="fas fa-star"></i> ممتاز</option>
+                    <option><i class="fas fa-star-half-alt"></i> جيد</option>
+                    <option><i class="fas fa-exclamation-circle"></i> يحتاج تحسين</option>
+                </select>
+                <i class="fas fa-award input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="notes"><i class="fas fa-comment"></i> ملاحظات:</label>
+                <textarea id="notes" rows="3" placeholder="ملاحظات حول التسميع"></textarea>
+                <i class="fas fa-edit input-icon"></i>
+            </div>
+            <button type="submit"><i class="fas fa-check-circle"></i> حفظ البيانات</button>
+            <button type="button" class="excel-btn"><i class="fas fa-file-export"></i> تصدير التقرير</button>
+        </form>
+    </div>
+
+    <div id="competition" class="container">
+        <div class="competition-section">
+            <div class="competition-header">
+                <h2><i class="fas fa-trophy trophy-icon"></i> لوحة المنافسة بين الطالبات</h2>
+                <div>
+                    <button id="refresh-competition" class="excel-btn"><i class="fas fa-sync-alt"></i> تحديث البيانات</button>
+                    <button class="excel-btn"><i class="fas fa-medal"></i> عرض الجوائز</button>
+                </div>
+            </div>
+            
+            <div class="leaderboard">
+                <h3><i class="fas fa-list-ol"></i> ترتيب الطالبات حسب التقدم</h3>
+                <div id="leaderboard-list">
+                    <!-- Leaderboard will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="bar-chart">
+                <h3><i class="fas fa-chart-bar"></i> مقارنة التقدم</h3>
+                <div class="chart-container" id="progress-chart">
+                    <!-- Chart bars will be added by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="medals-distribution">
+                <div class="medal-card gold">
+                    <i class="fas fa-medal medal-icon" style="color: gold;"></i>
+                    <h4>المركز الأول</h4>
+                    <p id="gold-medalist">-</p>
+                    <p class="progress-value">-</p>
+                </div>
+                <div class="medal-card silver">
+                    <i class="fas fa-medal medal-icon" style="color: silver;"></i>
+                    <h4>المركز الثاني</h4>
+                    <p id="silver-medalist">-</p>
+                    <p class="progress-value">-</p>
+                </div>
+                <div class="medal-card bronze">
+                    <i class="fas fa-medal medal-icon" style="color: #cd7f32;"></i>
+                    <h4>المركز الثالث</h4>
+                    <p id="bronze-medalist">-</p>
+                    <p class="progress-value">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="stats" class="container">
+        <h2><i class="fas fa-chart-pie"></i> الإحصائيات والتحليلات</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-value">4</div>
+                <div class="stat-label">المجموعات</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">سور مكتملة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                <div class="stat-value">76%</div>
+                <div class="stat-label">متوسط التقدم</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-value">32</div>
+                <div class="stat-label">تسميعات اليوم</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h3><i class="fas fa-chart-line"></i> تقدم المجموعات</h3>
+            <div class="chart-container" style="height: 250px;" id="group-progress-chart">
+                <!-- Group progress chart will be added by JavaScript -->
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h3><i class="fas fa-calendar-alt"></i> النشاط خلال الأسبوع</h3>
+            <div class="chart-container" style="height: 250px;" id="weekly-activity-chart">
+                <!-- Weekly activity chart will be added by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="settings" class="container">
+        <h2><i class="fas fa-cog"></i> الإعدادات</h2>
+        <form id="settings-form">
+            <div class="form-group">
+                <label for="theme-color"><i class="fas fa-palette"></i> لون السمة:</label>
+                <select id="theme-color">
+                    <option value="blue">أزرق</option>
+                    <option value="green">أخضر</option>
+                    <option value="purple">بنفسجي</option>
+                    <option value="red">أحمر</option>
+                </select>
+                <i class="fas fa-fill-drip input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="language"><i class="fas fa-language"></i> اللغة:</label>
+                <select id="language">
+                    <option value="ar">العربية</option>
+                    <option value="en">الإنجليزية</option>
+                </select>
+                <i class="fas fa-globe input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="notifications"><i class="fas fa-bell"></i> الإشعارات:</label>
+                <select id="notifications">
+                    <option value="on">مفعّلة</option>
+                    <option value="off">معطّلة</option>
+                </select>
+                <i class="fas fa-bell-slash input-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="backup-frequency"><i class="fas fa-database"></i> نسخ احتياطي كل:</label>
+                <select id="backup-frequency">
+                    <option value="daily">يومياً</option>
+                    <option value="weekly">أسبوعياً</option>
+                    <option value="monthly">شهرياً</option>
+                </select>
+                <i class="fas fa-history input-icon"></i>
+            </div>
+            <button type="submit"><i class="fas fa-save"></i> حفظ الإعدادات</button>
+            <button type="button" class="excel-btn"><i class="fas fa-cloud-upload-alt"></i> نسخ احتياطي الآن</button>
+        </form>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://alcdn.msauth.net/browser/2.24.0/js/msal-browser.min.js"></script>
+    
+    <script>
+        // Configuration - Replace with your actual values
+        const config = {
+            auth: {
+                clientId: "YOUR_CLIENT_ID",
+                authority: "https://login.microsoftonline.com/common",
+                redirectUri: window.location.origin
+            },
+            excel: {
+                fileId: "YOUR_EXCEL_FILE_ID",
+                driveId: "root",
+                sheetName: "Students",
+                tableName: "StudentsTable"
+            }
+        };
+
+        // MSAL instance
+        const msalInstance = new msal.PublicClientApplication(config.auth);
+
+        // Login function
+        async function login() {
+            const loginRequest = {
+                scopes: ["Files.ReadWrite", "User.Read"]
+            };
+            
+            try {
+                const response = await msalInstance.loginPopup(loginRequest);
+                return response.accessToken;
+            } catch (error) {
+                console.error("Login failed:", error);
+                alert("فشل في المصادقة. يرجى المحاولة مرة أخرى.");
+                return null;
+            }
+        }
+
+        // Load data from Excel
+        async function loadExcelData() {
+            const token = await login();
+            if (!token) return;
+
+            const url = `https://graph.microsoft.com/v1.0/drives/${config.excel.driveId}/items/${config.excel.fileId}/workbook/worksheets/${config.excel.sheetName}/tables/${config.excel.tableName}/rows`;
+            
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!response.ok) throw new Error("Failed to load data");
+                
+                const data = await response.json();
+                updateUI(data.value);
+            } catch (error) {
+                console.error("Error loading data:", error);
+                alert("حدث خطأ أثناء تحميل البيانات من Excel");
+            }
+        }
+
+        // Save data to Excel
+        async function saveToExcel(studentData) {
+            const token = await login();
+            if (!token) return false;
+
+            const url = `https://graph.microsoft.com/v1.0/drives/${config.excel.driveId}/items/${config.excel.fileId}/workbook/worksheets/${config.excel.sheetName}/tables/${config.excel.tableName}/rows/add`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        values: [studentData]
+                    })
+                });
+                
+                if (!response.ok) throw new Error("Failed to save data");
+                
+                return true;
+            } catch (error) {
+                console.error("Error saving data:", error);
+                alert("حدث خطأ أثناء حفظ البيانات في Excel");
+                return false;
+            }
+        }
+
+        // Update UI with Excel data
+        function updateUI(data) {
+            const tableBody = document.getElementById('students-table-body');
+            const studentSelect = document.getElementById('student');
+            
+            // Clear existing data
+            tableBody.innerHTML = '';
+            studentSelect.innerHTML = '<option value="">اختر الطالبة</option>';
+            
+            // Add new data
+            data.forEach(row => {
+                const progress = parseInt(row[4]) || 0;
+                const groupClass = `group-${row[1]?.toLowerCase()}` || '';
+                
+                // Add to table
+                const newRow = tableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${row[0] || ''}</td>
+                    <td><span class="group-badge ${groupClass}">${row[1] || ''}</span></td>
+                    <td>${row[2] || ''}</td>
+                    <td>${row[3] || '-'}</td>
+                    <td>
+                        <div class="circular-progress" style="--progress: ${progress}">
+                            <svg viewBox="0 0 64 64">
+                                <circle class="circular-progress-bg" cx="32" cy="32" r="30"></circle>
+                                <circle class="circular-progress-fill" cx="32" cy="32" r="30"></circle>
+                            </svg>
+                            <div class="circular-progress-text">${progress}%</div>
+                        </div>
+                    </td>
+                    <td>${row[5] || '-'}</td>
+                    <td>
+                        <button class="excel-btn" style="padding: 5px 10px; margin: 2px;"><i class="fas fa-eye"></i></button>
+                        <button class="excel-btn" style="padding: 5px 10px; margin: 2px;"><i class="fas fa-edit"></i></button>
+                        <button class="excel-btn" style="padding: 5px 10px; margin: 2px; background-color: var(--danger-color);"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                
+                // Add to dropdown
+                const option = document.createElement('option');
+                option.value = row[0];
+                option.textContent = row[0];
+                studentSelect.appendChild(option);
+            });
+            
+            // Update competition view
+            updateCompetitionView(data);
+            
+            // Update stats
+            document.getElementById('total-students').textContent = data.length;
+            if(data.length > 0) {
+                const maxProgress = Math.max(...data.map(row => parseInt(row[4]) || 0);
+                document.getElementById('top-performer').textContent = `${maxProgress}%`;
+            }
+        }
+
+        // Competition Visualization Functions
+        function updateCompetitionView(students) {
+            // Sort students by progress (descending)
+            const sortedStudents = [...students].sort((a, b) => {
+                const progressA = parseInt(a[4]) || 0;
+                const progressB = parseInt(b[4]) || 0;
+                return progressB - progressA;
+            });
+
+            // Update Leaderboard
+            const leaderboardList = document.getElementById('leaderboard-list');
+            leaderboardList.innerHTML = '';
+            
+            sortedStudents.forEach((student, index) => {
+                const progress = parseInt(student[4]) || 0;
+                const rankClass = index < 3 ? `rank-${index + 1}` : '';
+                
+                const item = document.createElement('div');
+                item.className = 'leaderboard-item';
+                item.innerHTML = `
+                    <div class="rank ${rankClass}">${index + 1}</div>
+                    <div class="student-info">
+                        <div class="student-name">${student[0]}</div>
+                        <div class="student-group">المجموعة ${student[1]}</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                        <div class="progress-value">${progress}%</div>
+                    </div>
+                `;
+                leaderboardList.appendChild(item);
+            });
+
+            // Update Bar Chart
+            updateBarChart(sortedStudents.slice(0, 10)); // Show top 10 students
+
+            // Update Medalists
+            if (sortedStudents.length > 0) {
+                document.getElementById('gold-medalist').textContent = sortedStudents[0][0];
+                document.querySelector('.gold .progress-value').textContent = `${sortedStudents[0][4]}%`;
+                
+                if (sortedStudents.length > 1) {
+                    document.getElementById('silver-medalist').textContent = sortedStudents[1][0];
+                    document.querySelector('.silver .progress-value').textContent = `${sortedStudents[1][4]}%`;
+                }
+                
+                if (sortedStudents.length > 2) {
+                    document.getElementById('bronze-medalist').textContent = sortedStudents[2][0];
+                    document.querySelector('.bronze .progress-value').textContent = `${sortedStudents[2][4]}%`;
+                }
+            }
+            
+            // Update Group Progress Chart
+            updateGroupProgressChart(students);
+            
+            // Update Weekly Activity Chart
+            updateWeeklyActivityChart();
+        }
+
+        function updateBarChart(topStudents) {
+            const chartContainer = document.getElementById('progress-chart');
+            chartContainer.innerHTML = '';
+            
+            topStudents.forEach(student => {
+                const progress = parseInt(student[4]) || 0;
+                const barHeight = (progress / 100) * 100; // Percentage of chart height
+                
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.height = `${barHeight}%`;
+                bar.innerHTML = `
+                    <div class="chart-value">${progress}%</div>
+                    <div class="chart-label">${student[0].split(' ')[0]}</div>
+                `;
+                
+                chartContainer.appendChild(bar);
+            });
+        }
+        
+        function updateGroupProgressChart(students) {
+            const chartContainer = document.getElementById('group-progress-chart');
+            chartContainer.innerHTML = '';
+            
+            // Calculate average progress per group
+            const groups = {
+                'أ': { count: 0, total: 0 },
+                'ب': { count: 0, total: 0 },
+                'ج': { count: 0, total: 0 },
+                'د': { count: 0, total: 0 }
+            };
+            
+            students.forEach(student => {
+                const group = student[1];
+                const progress = parseInt(student[4]) || 0;
+                if(groups[group]) {
+                    groups[group].count++;
+                    groups[group].total += progress;
+                }
+            });
+            
+            // Create bars for each group
+            Object.entries(groups).forEach(([group, data]) => {
+                const avgProgress = data.count > 0 ? Math.round(data.total / data.count) : 0;
+                const barHeight = (avgProgress / 100) * 100;
+                
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.height = `${barHeight}%`;
+                bar.innerHTML = `
+                    <div class="chart-value">${avgProgress}%</div>
+                    <div class="chart-label">المجموعة ${group}</div>
+                `;
+                
+                chartContainer.appendChild(bar);
+            });
+        }
+        
+        function updateWeeklyActivityChart() {
+            const chartContainer = document.getElementById('weekly-activity-chart');
+            chartContainer.innerHTML = '';
+            
+            // Sample data for weekly activity
+            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+            const activityData = [12, 19, 15, 22, 18, 8, 10]; // Sample data
+            
+            days.forEach((day, index) => {
+                const activity = activityData[index];
+                const barHeight = (activity / 25) * 100; // Assuming max 25 tests per day
+                
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.height = `${barHeight}%`;
+                bar.innerHTML = `
+                    <div class="chart-value">${activity}</div>
+                    <div class="chart-label">${day}</div>
+                `;
+                
+                chartContainer.appendChild(bar);
+            });
+        }
+
+        // Event listeners
+        document.getElementById('load-excel').addEventListener('click', loadExcelData);
+        document.getElementById('refresh-competition').addEventListener('click', loadExcelData);
+        document.getElementById('print-report').addEventListener('click', function() {
+            window.print();
+        });
+        
+        document.getElementById('save-to-excel').addEventListener('click', async function() {
+            const studentData = [
+                document.getElementById('new-student-name').value,
+                document.getElementById('new-student-group').value,
+                document.getElementById('new-student-start').value,
+                document.getElementById('new-student-review').value || '-',
+                '0', // Initial progress
+                document.getElementById('new-student-notes').value || '-'
+            ];
+            
+            const success = await saveToExcel(studentData);
+            if (success) {
+                alert("تمت إضافة الطالبة بنجاح إلى Excel");
+                document.getElementById('add-student-form').reset();
+                loadExcelData(); // Refresh the data
+            }
+        });
+
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("تم تسجيل التسميع بنجاح!");
+            this.reset();
+        });
+
+        // Initialize - Load data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize circular progress indicators
+            document.querySelectorAll('.circular-progress').forEach(el => {
+                const progress = el.style.getPropertyValue('--progress') || 0;
+                const fill = el.querySelector('.circular-progress-fill');
+                if (fill) {
+                    const circumference = 2 * Math.PI * 30;
+                    const offset = circumference - (progress / 100) * circumference;
+                    fill.style.strokeDashoffset = offset;
+                }
+            });
+            
+            // Load sample data for initial display
+            const sampleData = [
+                ["فاطمة أحمد", "أ", "البقرة (1-10)", "الفاتحة", "90", "ممتازة"],
+                ["آية محمد", "ب", "آل عمران (1-5)", "البقرة (1-50)", "85", "جيدة جدًا"],
+                ["سارة خالد", "ج", "النساء (1-7)", "آل عمران (1-20)", "78", "تحتاج متابعة"],
+                ["هناء علي", "أ", "المائدة (1-5)", "النساء (1-10)", "72", "ممتازة"],
+                ["نورا سعيد", "د", "الأنعام (1-10)", "المائدة (1-8)", "65", "جيدة"],
+                ["مريم عبدالله", "ب", "الأعراف (1-15)", "الأنعام (1-20)", "88", "ممتازة"],
+                ["خلود حسن", "ج", "الأنفال (1-10)", "الأعراف (1-25)", "70", "جيدة"],
+                ["أسماء وليد", "أ", "التوبة (1-7)", "الأنفال (1-10)", "92", "ممتازة"],
+                ["لينا عمر", "د", "يونس (1-12)", "التوبة (1-15)", "68", "جيدة"],
+                ["ريماس نواف", "ب", "هود (1-5)", "يونس (1-20)", "80", "جيدة جدًا"]
+            ];
+            
+            updateUI(sampleData);
+            
+            // Uncomment to auto-load data from Excel on page load
+            // loadExcelData();
+        });
+    </script>
+</body>
+</html>
